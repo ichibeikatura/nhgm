@@ -12,8 +12,8 @@
       '(
         ("^\* .*" . font-lock-function-name-face);;見出し用
         ("^\*\* .*" . font-lock-type-face);;見出し用
-;	(".*[0-9]$" . font-lock-function-name-face);個人的に使用する読書メモ用
-;	(".*[0-9]:" . font-lock-string-face);同上
+	(".*[0-9]$" . font-lock-function-name-face);個人的に使用する読書メモ用
+	(".*[0-9]:" . font-lock-string-face);同上
 	("れる。\\|れた。" . font-lock-type-face);受け身の文章、あまり使わない。
 	("ます。\\|です。\\|だ。\\|なる。\\|なのだ。\\|である。\\|ない。\\|いる。" . font-lock-builtin-face);文末。同じものを続けない。
 	("これ\\|ここ\\|この\\|こう\\|こんな\\|それ\\|そこ\\|その\\|そう\\|そんな\\|あれ\\|あそこ\\|あの\\|あんな\\|どれ\\|どこ\\|どの\\|どう\\|どんな\\|よう[にな]\\|もの" . font-lock-builtin-face);指示語、多用しない。
@@ -28,28 +28,13 @@
         )
       )
 
-(defvar niposi-mode nil)
-
-(if (not (assq 'niposi-mode minor-mode-alist))
-    (setq minor-mode-alist
-             (cons '(niposi-mode " niposi")
-              minor-mode-alist)))
-
-(defun niposi-mode (&optional arg)
-           "niposi minor-mode"
-(interactive)
-(cond
- ((< (prefix-numeric-value arg) 0)
-   (setq niposi-mode nil))
-            (arg 
-            (setq niposi-mode t))
-            (t 
-   (setq niposi-mode (not niposi-mode))))
-            (if niposi-mode
-		(progn
-		    (kill-all-local-variables)
-		  (setq font-lock-defaults '(niposiKeywords)))
-))
-
+(defun niposi-mode ()
+  "niposi mode"
+  (interactive)
+  (kill-all-local-variables)
+  (setq major-mode 'niposi-mode)
+  (setq mode-name "niposi")
+  (setq font-lock-defaults '(niposiKeywords))
+  (run-hooks 'niposi-mode-hook))
 
 (provide 'niposi)
