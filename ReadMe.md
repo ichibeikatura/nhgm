@@ -15,25 +15,25 @@
 
 GitHub経由でインストールし、自動で読み込む設定（Elpaca + leaf / use-package）を推奨します。
 
-### leaf の場合
-
-```lisp
-(leaf nhg-minor-mode
-  :elpaca (nhg-minor-mode
-           :url "https://github.com/ichibeikatura/nhg-minor-mode"
-           :main "nhg-minor-mode.el")
-  :hook ((text-mode-hook markdown-mode-hook) . nhg-minor-mode))
-
-```
-
 ### use-package の場合
 
 ```lisp
 (use-package nhg-minor-mode
   :elpaca (nhg-minor-mode
-           :url "https://github.com/ichibeikatura/nhg-minor-mode"
+           :url "https://github.com/ichibeikatura/nhgm"
            :main "nhg-minor-mode.el")
   :hook ((text-mode markdown-mode) . nhg-minor-mode))
+
+```
+
+### leaf の場合
+
+```lisp
+(leaf nhg-minor-mode
+  :elpaca (nhg-minor-mode
+           :url "https://github.com/ichibeikatura/nhgm"
+           :main "nhg-minor-mode.el")
+  :hook ((text-mode-hook markdown-mode-hook) . nhg-minor-mode))
 
 ```
 
