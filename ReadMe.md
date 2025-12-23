@@ -20,8 +20,7 @@ GitHub経由でインストールし、自動で読み込む設定（Elpac
 ```lisp
 (use-package nhg-minor-mode
   :elpaca (nhg-minor-mode
-           :url "https://github.com/ichibeikatura/nhgm"
-           :main "nhg-minor-mode.el")
+           :url "https://github.com/ichibeikatura/nhg-minor-mode")
   :hook ((text-mode markdown-mode) . nhg-minor-mode))
 
 ```
@@ -31,8 +30,7 @@ GitHub経由でインストールし、自動で読み込む設定（Elpac
 ```lisp
 (leaf nhg-minor-mode
   :elpaca (nhg-minor-mode
-           :url "https://github.com/ichibeikatura/nhgm"
-           :main "nhg-minor-mode.el")
+           :url "https://github.com/ichibeikatura/nhg-minor-mode")
   :hook ((text-mode-hook markdown-mode-hook) . nhg-minor-mode))
 
 ```
